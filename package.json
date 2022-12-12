@@ -6,8 +6,8 @@
   "scripts": {
     "start": "ts-node src/app.ts",
     "dev": "nodemon --config nodemon.json src/app.ts",
-    "build":"tsc",
-    "server":"node dist/app.js"
+    "build": "tsc",
+    "server": "node dist/app.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/akshat-khosya/backend-template#readme",
   "dependencies": {
     "@types/otp-generator": "^4.0.0",
+    "@types/swagger-ui-express": "^4.1.3",
     "@types/uuid": "^9.0.0",
     "bcrypt": "^5.0.1",
     "config": "^3.3.7",
@@ -38,6 +39,8 @@
     "pino": "^8.3.0",
     "pino-pretty": "^8.1.0",
     "sequelize": "^6.26.0",
+    "swagger-jsdoc": "^6.2.5",
+    "swagger-ui-express": "^4.6.0",
     "twilio": "^3.83.4",
     "uuid": "^9.0.0",
     "yup": "^0.32.11"

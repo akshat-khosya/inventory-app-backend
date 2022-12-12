@@ -1,0 +1,633 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Inventory",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "https://invenotory-backend.onrender.com"
+      }
+    ],
+    "paths": {
+      "/api/user/reqotp": {
+        "post": {
+          "tags": [
+            "General"
+          ],
+          "summary": "Request Otp",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "phone": "9416908474"
+                  }
+                }
+              }
+            }
+          },
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              },
+              "description": "JSON",
+              "example": "application/json"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": {
+                "Date": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Mon, 12 Dec 2022 07:17:42 GMT"
+                  }
+                },
+                "Content-Type": {
+                  "schema": {
+                    "type": "string",
+                    "example": "application/json; charset=utf-8"
+                  }
+                },
+                "Transfer-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "chunked"
+                  }
+                },
+                "Connection": {
+                  "schema": {
+                    "type": "string",
+                    "example": "keep-alive"
+                  }
+                },
+                "CF-Ray": {
+                  "schema": {
+                    "type": "string",
+                    "example": "7784ae8cdd488adc-DEL"
+                  }
+                },
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string",
+                    "example": "*"
+                  }
+                },
+                "ETag": {
+                  "schema": {
+                    "type": "string",
+                    "example": "W/\"23-YsSrbfhPBo5PNRhpOhArqd7KnMQ\""
+                  }
+                },
+                "Vary": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Accept-Encoding"
+                  }
+                },
+                "CF-Cache-Status": {
+                  "schema": {
+                    "type": "string",
+                    "example": "DYNAMIC"
+                  }
+                },
+                "x-powered-by": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Express"
+                  }
+                },
+                "Server": {
+                  "schema": {
+                    "type": "string",
+                    "example": "cloudflare"
+                  }
+                },
+                "Content-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "br"
+                  }
+                },
+                "alt-svc": {
+                  "schema": {
+                    "type": "string",
+                    "example": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  },
+                  "example": {
+                    "message": "OTP sent successfully"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/user/verifyotp": {
+        "post": {
+          "tags": [
+            "General"
+          ],
+          "summary": "Verify Otp",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "phone": "9416908474",
+                    "otp": 507815
+                  }
+                }
+              }
+            }
+          },
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              },
+              "description": "JSON",
+              "example": "application/json"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": {
+                "Date": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Mon, 12 Dec 2022 07:18:50 GMT"
+                  }
+                },
+                "Content-Type": {
+                  "schema": {
+                    "type": "string",
+                    "example": "application/json; charset=utf-8"
+                  }
+                },
+                "Transfer-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "chunked"
+                  }
+                },
+                "Connection": {
+                  "schema": {
+                    "type": "string",
+                    "example": "keep-alive"
+                  }
+                },
+                "CF-Ray": {
+                  "schema": {
+                    "type": "string",
+                    "example": "7784b031b8c38adc-DEL"
+                  }
+                },
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string",
+                    "example": "*"
+                  }
+                },
+                "ETag": {
+                  "schema": {
+                    "type": "string",
+                    "example": "W/\"f2-S5EoSvWqmMCPtaFlsNIcPtvLqpU\""
+                  }
+                },
+                "Vary": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Accept-Encoding"
+                  }
+                },
+                "CF-Cache-Status": {
+                  "schema": {
+                    "type": "string",
+                    "example": "DYNAMIC"
+                  }
+                },
+                "x-powered-by": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Express"
+                  }
+                },
+                "Server": {
+                  "schema": {
+                    "type": "string",
+                    "example": "cloudflare"
+                  }
+                },
+                "Content-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "br"
+                  }
+                },
+                "alt-svc": {
+                  "schema": {
+                    "type": "string",
+                    "example": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  },
+                  "example": {
+                    "message": "OTP verified successfully",
+                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJiNzhmNWM5Ni0zNWFjLTQwMDQtODI4OS1kZmM2ZTQ5NmM3NTMiLCJpYXQiOjE2NzA4Mjk1MzAsImV4cCI6MTY3MDgzMzEzMH0.9rTA-qB9Y97wDDIBiRjQzVFCl9GRgq0GnDQzebN-B9E"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/product/create": {
+        "post": {
+          "tags": [
+            "General"
+          ],
+          "summary": "Add a Product",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "name": "iPhone",
+                    "url": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-pro-model-unselect-gallery-2-202209_GEO_EMEA?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1660753617539",
+                    "description": "A magical new way to interact with iPhone. A vital safety feature designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ..."
+                  }
+                }
+              }
+            }
+          },
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              },
+              "description": "JSON",
+              "example": "application/json"
+            },
+            {
+              "name": "x-auth-token",
+              "in": "header",
+              "schema": {
+                "type": "number"
+              },
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJiNzhmNWM5Ni0zNWFjLTQwMDQtODI4OS1kZmM2ZTQ5NmM3NTMiLCJpYXQiOjE2NzA4Mjk1MzAsImV4cCI6MTY3MDgzMzEzMH0.9rTA-qB9Y97wDDIBiRjQzVFCl9GRgq0GnDQzebN-B9E"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": {
+                "Date": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Mon, 12 Dec 2022 07:19:15 GMT"
+                  }
+                },
+                "Content-Type": {
+                  "schema": {
+                    "type": "string",
+                    "example": "application/json; charset=utf-8"
+                  }
+                },
+                "Transfer-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "chunked"
+                  }
+                },
+                "Connection": {
+                  "schema": {
+                    "type": "string",
+                    "example": "keep-alive"
+                  }
+                },
+                "CF-Ray": {
+                  "schema": {
+                    "type": "string",
+                    "example": "7784b0d0e9d28adc-DEL"
+                  }
+                },
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string",
+                    "example": "*"
+                  }
+                },
+                "ETag": {
+                  "schema": {
+                    "type": "string",
+                    "example": "W/\"1f1-CSjqU9COT77qorcvuW06wL1F3Hw\""
+                  }
+                },
+                "Vary": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Accept-Encoding"
+                  }
+                },
+                "CF-Cache-Status": {
+                  "schema": {
+                    "type": "string",
+                    "example": "DYNAMIC"
+                  }
+                },
+                "x-powered-by": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Express"
+                  }
+                },
+                "Server": {
+                  "schema": {
+                    "type": "string",
+                    "example": "cloudflare"
+                  }
+                },
+                "Content-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "br"
+                  }
+                },
+                "alt-svc": {
+                  "schema": {
+                    "type": "string",
+                    "example": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  },
+                  "example": {
+                    "product": {
+                      "name": "iPhone",
+                      "url": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-pro-model-unselect-gallery-2-202209_GEO_EMEA?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1660753617539",
+                      "description": "A magical new way to interact with iPhone. A vital safety feature designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ...",
+                      "productOwner": "b78f5c96-35ac-4004-8289-dfc6e496c753",
+                      "productId": "3a8ab4f2-a4a2-43a0-a158-92f619415cbf"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/product/all": {
+        "get": {
+          "tags": [
+            "General"
+          ],
+          "summary": "Get All Products",
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              },
+              "description": "JSON",
+              "example": "application/json"
+            },
+            {
+              "name": "x-auth-token",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              },
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJiNzhmNWM5Ni0zNWFjLTQwMDQtODI4OS1kZmM2ZTQ5NmM3NTMiLCJpYXQiOjE2NzA3ODAyODgsImV4cCI6MTY3MDc4Mzg4OH0.hu1eJ0is2GCwGEVjXW51mClprl-0xVDNg2EJKrxynTs"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": {
+                "Date": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Mon, 12 Dec 2022 07:19:38 GMT"
+                  }
+                },
+                "Content-Type": {
+                  "schema": {
+                    "type": "string",
+                    "example": "application/json; charset=utf-8"
+                  }
+                },
+                "Transfer-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "chunked"
+                  }
+                },
+                "Connection": {
+                  "schema": {
+                    "type": "string",
+                    "example": "keep-alive"
+                  }
+                },
+                "CF-Ray": {
+                  "schema": {
+                    "type": "string",
+                    "example": "7784b15f8ece8adc-DEL"
+                  }
+                },
+                "Access-Control-Allow-Origin": {
+                  "schema": {
+                    "type": "string",
+                    "example": "*"
+                  }
+                },
+                "ETag": {
+                  "schema": {
+                    "type": "string",
+                    "example": "W/\"b01-JnsMfwtHfQaNAHuJGKEPScdoY+o\""
+                  }
+                },
+                "Vary": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Accept-Encoding"
+                  }
+                },
+                "CF-Cache-Status": {
+                  "schema": {
+                    "type": "string",
+                    "example": "DYNAMIC"
+                  }
+                },
+                "x-powered-by": {
+                  "schema": {
+                    "type": "string",
+                    "example": "Express"
+                  }
+                },
+                "Server": {
+                  "schema": {
+                    "type": "string",
+                    "example": "cloudflare"
+                  }
+                },
+                "Content-Encoding": {
+                  "schema": {
+                    "type": "string",
+                    "example": "br"
+                  }
+                },
+                "alt-svc": {
+                  "schema": {
+                    "type": "string",
+                    "example": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  },
+                  "example": {
+                    "prodcuts": [
+                      {
+                        "productId": "fec4b26c-e030-44fc-bba0-5f9eb3dbcd09",
+                        "productOwner": "b78f5c96-35ac-4004-8289-dfc6e496c753",
+                        "name": "iPhone",
+                        "url": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-pro-model-unselect-gallery-2-202209_GEO_EMEA?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1660753617539",
+                        "description": "A magical new way to interact with iPhone. A vital safety feature designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ..."
+                      },
+                      {
+                        "productId": "c2d7636e-0d5d-4252-a794-e842cac547df",
+                        "productOwner": "b78f5c96-35ac-4004-8289-dfc6e496c753",
+                        "name": "iPhone",
+                        "url": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-pro-model-unselect-gallery-2-202209_GEO_EMEA?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1660753617539",
+                        "description": "A magical new way to interact with iPhone. A vital safety feature designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ..."
+                      },
+                      {
+                        "productId": "c8b085df-7936-4dc6-9348-1204b49f4c28",
+                        "productOwner": "b78f5c96-35ac-4004-8289-dfc6e496c753",
+                        "name": "iPhone",
+                        "url": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-pro-model-unselect-gallery-2-202209_GEO_EMEA?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1660753617539",
+                        "description": "A magical new way to interact with iPhone. A vital safety feature designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ..."
+                      },
+                      {
+                        "productId": "e8f5b7ae-3906-417f-a7ea-e590c79d6cb0",
+                        "productOwner": "17f0e53e-8904-4e5f-916f-1bbf4693e213",
+                        "name": "New ",
+                        "url": null,
+                        "description": "This is the new Product"
+                      },
+                      {
+                        "productId": "01bff353-6d63-410d-a99f-c5a6e753dd58",
+                        "productOwner": "17f0e53e-8904-4e5f-916f-1bbf4693e213",
+                        "name": "New ",
+                        "url": null,
+                        "description": "This is the new Product"
+                      },
+                      {
+                        "productId": "b3befb0d-6665-460f-997d-1f3afc8a8149",
+                        "productOwner": "17f0e53e-8904-4e5f-916f-1bbf4693e213",
+                        "name": "New ",
+                        "url": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-pro-model-unselect-gallery-2-202209_GEO_EMEA?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1660753617539",
+                        "description": "This is the new Product"
+                      },
+                      {
+                        "productId": "56e63675-828e-45ab-8536-57ceaa465ce2",
+                        "productOwner": "b78f5c96-35ac-4004-8289-dfc6e496c753",
+                        "name": "Testing ",
+                        "url": null,
+                        "description": "New product tested"
+                      },
+                      {
+                        "productId": "3a8ab4f2-a4a2-43a0-a158-92f619415cbf",
+                        "productOwner": "b78f5c96-35ac-4004-8289-dfc6e496c753",
+                        "name": "iPhone",
+                        "url": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-pro-model-unselect-gallery-2-202209_GEO_EMEA?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1660753617539",
+                        "description": "A magical new way to interact with iPhone. A vital safety feature designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ..."
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/product/delete/{productId}": {
+        "delete": {
+          "tags": [
+            "General"
+          ],
+          "summary": "Delete a Products",
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              },
+              "description": "JSON",
+              "example": "application/json"
+            },
+            {
+              "name": "x-auth-token",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              },
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJiNzhmNWM5Ni0zNWFjLTQwMDQtODI4OS1kZmM2ZTQ5NmM3NTMiLCJpYXQiOjE2NzA3ODAyODgsImV4cCI6MTY3MDc4Mzg4OH0.hu1eJ0is2GCwGEVjXW51mClprl-0xVDNg2EJKrxynTs"
+            },
+            {
+              "name": "productId",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true,
+              "example": "6cf2e816-33c5-428e-a1d7-3ad74f2a5161"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
