@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/app.ts",
-    "dev": "nodemon --config nodemon.json src/app.ts"
+    "dev": "nodemon --config nodemon.json src/app.ts",
+    "build":"tsc",
+    "server":"node dist/app.js"
   },
   "repository": {
     "type": "git",
