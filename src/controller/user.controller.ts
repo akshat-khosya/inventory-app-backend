@@ -2,6 +2,7 @@ import { Request, Response } from "express"
 import otpGenerator from 'otp-generator'
 import log from "../lib/logger";
 import sms from "../lib/Twilio";
+import { findOneUser } from "../repo/user.repo";
 import { saveOtp, verifyOtp } from "../services/token.service";
 import { sign } from "../utils/jwt.utils";
 
@@ -19,7 +20,7 @@ const requestOtpHandler = async (req: Request, res: Response) => {
         return res.status(200).send({ message: "OTP sent successfully" });
     } catch (error) {
         log.error(error);
-        return res.status(500).send({ message: (error as Error).message });
+        return res.status(500).send({ message: "Server error" });
     }
 }
 
@@ -30,15 +31,32 @@ const verifyOtpHandler = async (req: Request, res: Response) => {
         let token = await verifyOtp(otp, phone);
         // return the response
         if (!token) {
-            return res.status(400).send({ message: "Invalid OTP" });
+            return res.status(400).send({ msg: ["Invalid OTP"] });
         }
         // create jwt token
-        let jwtToken = sign({ userId: token.userId}, { expiresIn: "1h" });
-        return res.status(200).send({ message: "OTP verified successfully",token:jwtToken});
+        let jwtToken = sign({ userId: token.userId }, { expiresIn: "1h" });
+        return res.status(200).send({ message: "OTP verified successfully", token: jwtToken });
     } catch (error) {
         log.error(error);
         return res.status(500).send({ message: (error as Error).message });
     }
 }
 
-export { requestOtpHandler,verifyOtpHandler};
+const autologinHandler = async (req: Request, res: Response) => {
+    try {
+        const userId = req.user;
+        let user = await findOneUser({ userId: userId });
+        log.info(req.user);
+        if (!user) {
+            return res.status(400).send({ msg: ["User not found"] });
+        }
+        return res.status(200).send({ message: "User found", user: user });
+    } catch (error) {
+        log.error(error);
+        return res.status(500).send({ message: (error as Error).message });
+    }
+
+
+}
+
+export { requestOtpHandler, verifyOtpHandler ,autologinHandler};

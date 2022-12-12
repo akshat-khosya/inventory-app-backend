@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { requestOtpHandler, verifyOtpHandler } from "../controller/user.controller";
-import { validate } from "../middleware";
+import { autologinHandler, requestOtpHandler, verifyOtpHandler } from "../controller/user.controller";
+import { requiresUser, validate } from "../middleware";
 import { otpCreateSchema, otpVerifySchema } from "../schema/user.schema";
 
 
@@ -10,6 +10,8 @@ export default function () {
     router.post('/api/user/reqotp', validate(otpCreateSchema), requestOtpHandler);
     // Verify OTP
     router.post('/api/user/verifyotp', validate(otpVerifySchema), verifyOtpHandler);
+    // auto login
+    router.get('/api/user/autologin',requiresUser,autologinHandler);
     
     return router;
 }

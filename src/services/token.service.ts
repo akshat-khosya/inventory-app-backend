@@ -1,6 +1,7 @@
 import { createToken, deleteOneToken, findOneToken } from "../repo/token.repo"
 import { createUser, findOneUser } from "../repo/user.repo";
 import { v4 as uuidv4 } from 'uuid';
+import log from "../lib/logger";
 const saveOtp = async (otp: number, phone: string) => {
     try {
         let token = await findOneToken({ phoneNumber: phone });
@@ -17,9 +18,11 @@ const saveOtp = async (otp: number, phone: string) => {
 const verifyOtp = async (otp: number, phone: string) => {
     try {
         let token = await findOneToken({ phoneNumber: phone });
+        log.info(token);
         if (!token) {
             return false;
         }
+        log.info(otp===token.otp);
         if (token.otp === otp) {
             await deleteOneToken({ phoneNumber: phone });
             let user = await findOneUser({ phoneNumber: phone });
