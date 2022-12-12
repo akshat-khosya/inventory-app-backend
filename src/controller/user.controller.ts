@@ -13,7 +13,7 @@ const requestOtpHandler = async (req: Request, res: Response) => {
         // genrate otp and send it to the user
         let otp = parseInt(otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false, lowerCaseAlphabets: false, digits: true }));
         log.info(otp);
-        // await sms.sendSMS(phone, otp);
+        await sms.sendSMS(phone, otp);
         // save the otp in the database
         let token = await saveOtp(otp, phone);
         // return the response
